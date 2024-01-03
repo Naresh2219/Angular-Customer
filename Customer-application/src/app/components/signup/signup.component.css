@@ -12,10 +12,11 @@
   /* Add some padding and border */
   padding: 200px;
   border: 2px solid white;
+
   /* Use a fixed height */
  height: auto;
   /* Use a grid display */
-background-image: url('../../assets/technical.jpg');
+background-image: url('../../../assets/technical.jpg');
   /* Use a light blue background color */
  
   /* Use an inset border style */

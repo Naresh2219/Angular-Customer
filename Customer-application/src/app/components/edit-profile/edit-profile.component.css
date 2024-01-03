@@ -1,0 +1,119 @@
+/* Use a custom font for the body */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Add a background color */
+    background-color: #f0f0f0;
+  }
+  
+  /* Use a flex container to center the form */
+  .container {
+    /* Use flex display */
+    display: flex;
+    /* Align items vertically */
+    align-items: center;
+    /* Center the container horizontally */
+    justify-content: center;
+    /* Add some padding and border */
+    padding: 20px;
+    border: 2px solid white;
+  }
+  
+  /* Style the card element */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  /* Style the image element */
+  .image {
+    /* Use a circular shape */
+    border-radius: 50%;
+    /* Use a relative position */
+    position: relative;
+    /* Use a fixed width and height */
+    width: 150px;
+    height: 150px;
+    /* Center the image horizontally and vertically */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Use a border */
+    border: 2px solid white;
+  }
+  
+  /* Style the image inside the image element */
+  .image img {
+    /* Use a circular shape */
+    border-radius: 50%;
+    /* Use the same width and height as the image element */
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Style the name element */
+  h1 {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  
+  /* Style the title element */
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  /* Style the social media icons */
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    margin: 5px;
+  }
+  
+  /* Change the icon color on hover */
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  /* Style the form element */
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  /* Style the form labels */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Style the form inputs */
+  input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  /* Style the submit button */
+  button {
+    width: 200px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Change the button color on hover */
+  button:hover {
+    background-color: #005cbf;
+  }
+  

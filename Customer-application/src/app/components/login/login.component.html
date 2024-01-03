@@ -1,0 +1,13 @@
+<div class="container ">
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+<h2>Login</h2>
+<label for="">Email</label>
+<input type="email" formControlName="email" required="">
+<span *ngIf="!form.get('email')?.valid && !form.get('email')?.untouched">Email must be valid</span>
+<label for="">Password</label>
+<input type="password" formControlName="password" required="">
+<span *ngIf="!form.get('password')?.valid && !form.get('password')?.untouched">Password must be 6 Characters</span>
+<span>{{errorMessage}}</span>
+<input type="submit">
+</form>
+</div>

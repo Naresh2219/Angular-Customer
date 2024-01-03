@@ -1,0 +1,48 @@
+<!-- Add a title for the webpage -->
+<head>
+    <title>Welcome and Sign Up</title>
+  </head>
+  
+  <!-- Add a div with class="container" to wrap the content -->
+  <div class="container">
+    <!-- Add a div with class="welcome" to display the welcome name -->
+    <div class="welcome">
+      <h1>Hello, Naresh!</h1>
+      <p>Welcome to our website. We are glad you are here.</p>
+    </div>
+    <!-- Add a div with class="signup" to display the sign up form -->
+   
+    <div class="signup">
+      <h2>Sign Up</h2>
+      <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" id="name" required placeholder="Enter your Full Name">
+          <span *ngIf="!form.get('name')?.valid && !form.get('name')?.untouched" >Name must be valid</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" id="email" required placeholder="enter valid mail">
+          <span *ngIf="!form.get('email')?.valid && !form.get('email')?.untouched">Email must be valid</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"class="inputField" formControlName="password" required placeholder="create password">
+          <span *ngIf="!form.get('password')?.valid && !form.get('password')?.touched">Password must have 6
+              Characters</span>
+        </div>
+        <div class="form-group">
+          <input type="submit" id="submit" [disabled]="form.invalid">
+        </div>
+     
+        <div class="social-icons">
+            <a href="#" class="google"><i class="fab fa-google"></i></a>
+            <a href="#" class="github"><i class="fab fa-github"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+      </form>
+    
+      <p>If all ready User please Signup?<a routerLink="/Login">Signup</a></p>
+    </div>
+  </div>
+  

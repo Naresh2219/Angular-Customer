@@ -1,5 +1,5 @@
 <div class="container ">
-<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="card">
 <h2>Login</h2>
 <label for="">Email</label>
 <input type="email" formControlName="email" required="">
@@ -9,5 +9,8 @@
 <span *ngIf="!form.get('password')?.valid && !form.get('password')?.untouched">Password must be 6 Characters</span>
 <span>{{errorMessage}}</span>
 <input type="submit">
+<div>
+    <p>If YOu dont have an Account Signup<a routerLink="/signup">Signup</a></p>
+</div>
 </form>
 </div>

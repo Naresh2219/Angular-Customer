@@ -10,7 +10,7 @@
   /* Center the container horizontally */
   justify-content: center;
   /* Add some padding and border */
-  padding: 200px;
+  padding: 100px;
   border: 2px solid white;
 
   /* Use a fixed height */
@@ -158,4 +158,7 @@ span {
 
 .twitter {
   background-color: #55ACEE;
+}
+.facebook{
+  background-color: #321a70;
 }

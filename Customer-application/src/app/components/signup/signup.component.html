@@ -1,5 +1,9 @@
 <!-- Add a title for the webpage -->
 <head>
+  <head>
+    <!-- Add the Font Awesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
     <title>Welcome and Sign Up</title>
   </head>
   
@@ -36,13 +40,14 @@
         </div>
      
         <div class="social-icons">
-            <a href="#" class="google"><i class="fab fa-google"></i></a>
-            <a href="#" class="github"><i class="fab fa-github"></i></a>
-            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="google"><i class="fa fa-google"></i></a>
+            <a href="#" class="github"><i class="fa fa-github"></i></a>
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
           </div>
       </form>
     
-      <p>If all ready User please Signup?<a routerLink="/Login">Signup</a></p>
+      <p>If all ready User please Signup?<a [routerLink]='["/Login"]'>Signin</a></p>
     </div>
   </div>
   

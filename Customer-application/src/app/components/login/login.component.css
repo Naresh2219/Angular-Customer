@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('../../../assets/_ece36de8-1d02-4d80-81c6-98e933449e03.jpg');
+  }
+  
+  .card {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    margin-bottom: 20px;
+    color: #007BFF;
+  }
+  
+  .card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #007BFF;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .card input:focus {
+    border-color: #0056b3;
+  }
+  
+  .card span {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .card input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

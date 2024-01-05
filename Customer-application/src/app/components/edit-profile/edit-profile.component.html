@@ -6,17 +6,9 @@
   <form [formGroup]="editForm" (ngSubmit)="onFormSubmit()">
     <div class="card">
       <!-- Use a div with class="image" to create a circular image -->
-      <div class="image">
-        <img src="C:/Users/ADMIN/OneDrive/Pictures/IMG_20220222_133549.jpg" alt="naresh">
-      </div>
-      <h1>Naresh challa</h1>
-      <p class="title">CEO & Founder, Example</p>
-      <!-- Use font-awesome icons for social media links -->
-      <a href="#"><i class="fa fa-dribbble"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-facebook"></i></a>
-    </div>
+      
+      
+      
 
     <div class="form">
       <label for="name">Name</label>
@@ -31,8 +23,9 @@
       <label for="image">Profile Image</label>
       <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*" required>
     </div>
-
+   
     <!-- Add a submit button -->
     <button type="submit">Update Profile</button>
+    </div>
   </form>
-</div>
+

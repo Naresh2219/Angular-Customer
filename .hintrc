@@ -14,6 +14,14 @@
       {
         "label": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "-webkit-backdrop-filter"
+        ]
+      }
     ]
   }
 }

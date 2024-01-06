@@ -4,14 +4,19 @@ import {SignupComponent} from './components/signup/signup.component';
 import {LoginComponent} from './components/login/login.component';
 import {GetallusersComponent} from './components/getallusers/getallusers.component';
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
-import {RequestComponent} from './components/request/request.component';
+import {NavBarComponent} from './components/nav-bar/nav-bar.component';
+import {TicketComponent} from './components/ticket/ticket.component';
+
 const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'Login',component:LoginComponent},
   {path:'all',component:GetallusersComponent},
   {path:'edit/:name',component:EditProfileComponent},
   { path: 'delete/:name', component: GetallusersComponent },
-  {path:'req',component:RequestComponent}
+  {path:'nav',component:NavBarComponent},
+  {path:'', redirectTo: 'nav', pathMatch:'full'},
+  {path:'Logout',component:GetallusersComponent},
+  {path:'ticket',component:TicketComponent}
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class GetallusersComponent implements OnInit {
   search = new FormControl('');
   users$: Observable<User[]> = new Observable<User[]>();
+  currentUser!:User;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -28,6 +29,9 @@ export class GetallusersComponent implements OnInit {
   loadUsers(): void {
     this.users$ = this.userService.getAllUsers();
   }
+  tickets(): void{
+    this.users$=this.userService.getOpenTickets();
+  }
 
   deleteUser(user: User): void {
     this.userService.deleteUser(user).subscribe(
@@ -41,7 +45,17 @@ export class GetallusersComponent implements OnInit {
     );
   }
 
-  logout(): void {
-    // Your logout logic here
-  }
+  onLogoutClick(): void {
+  this.userService.logout(this.currentUser).subscribe(
+    (success) => {
+      if (success) {
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['Login']);
+      }
+    },
+    (error) => {
+      console.error('Logout failed');
+    }
+  );
+}
 }

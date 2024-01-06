@@ -48,11 +48,19 @@ getUserByName(name: string): Observable<User> {
   return this.http.post<User>(`${this.apiUrl}/user/update/${user.name}`, formData);
 }
 
-getOpenTickets(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/open`);
+logout(user?: User): Observable<any>{
+  const url = '${this.apiUrl}/Logout';
+  return this.http.post(url, user);
+}
+
+ getOpenTickets(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/user/open`);
   }
 
-  getClosedTickets(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/closed`);
+  getClosedTickets(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/user/closed`);
+  }
+   saveUser(user: User): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/user/saveUser`, user);
   }
 }

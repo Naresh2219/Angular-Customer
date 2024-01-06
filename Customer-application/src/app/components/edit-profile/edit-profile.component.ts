@@ -42,6 +42,9 @@ export class EditProfileComponent implements OnInit {
           name: user.name,
           email: user.email,
           password: user.password,
+          title:user.title,
+          description:user.description,
+          status:user.status
         });
       },
       (error) => {

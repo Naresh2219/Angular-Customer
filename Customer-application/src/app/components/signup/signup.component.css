@@ -1,104 +1,59 @@
-
-
-/* Use a flex container to display the content */
 .container {
   background-size: cover;
-  /* Use flex display */
   display: flex;
-  /* Align items vertically */
   align-items: center;
-  /* Center the container horizontally */
   justify-content: center;
-  /* Add some padding and border */
   padding: 100px;
   border: 2px solid white;
-
-  /* Use a fixed height */
- height: auto;
-  /* Use a grid display */
-background-image: url('../../../assets/technical.jpg');
-  /* Use a light blue background color */
- 
-  /* Use an inset border style */
+  height: 900px;
+  background-image: url('../../../assets/_18bec115-9d17-4d52-94aa-713b3a4fd003.jpg');
   border-style: inset;
-  /* Use a light blue border color */
   border-color: rgb(34, 214, 214);
-  /* Use a box sizing property */
   box-sizing: border-box;
+  
 }
 
-/* Style the welcome element */
-.welcome {
-  /* Use a grid column */
-  grid-column: 1 / 2;
-  /* Use a grid row */
-  grid-row: 1 / 2;
-  /* Add some margin */
+.welcome, .signup {
   margin: 10px;
-  /* Add some padding */
   padding: 10px;
-  /* Add a box shadow */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
-  /* Add a transition effect */
   transition: all 0.3s ease-in-out;
-  /* Add a z-index */
   z-index: 50;
-  /* Add a linear gradient background image */
   background-image: linear-gradient(to right, #e0ecfb, #a6c1ee);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.3); 
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
 }
 
-/* Style the welcome heading */
+
 .welcome h1 {
-  /* Add a font size */
   font-size: 2rem;
-  /* Add a white color */
   color: #fff;
 }
 
-/* Style the welcome paragraph */
 .welcome p {
-  /* Add a font size */
   font-size: 1.2rem;
-  /* Add a white color */
   color: #fff;
 }
 
-/* Style the signup element */
-.signup {
-  /* Use a grid column */
-  grid-column: 2 / 3;
-  /* Use a grid row */
-  grid-row: 1 / 2;
-  /* Add some margin */
-  margin: 10px;
-  /* Add some padding */
-  padding: 10px;
-  /* Add a box shadow */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
-  /* Add a transition effect */
-  transition: all 0.3s ease-in-out;
-  /* Add a z-index */
-  z-index: 50;
-  /* Add a linear gradient background image */
-  background-image: linear-gradient(to right, #e0ecfb, #a6c1ee);
-}
 
-/* Style the signup heading */
 .signup h2 {
-  /* Add a font size */
   font-size: 1.5rem;
-  /* Add a white color */
   color: #fff;
 }
 
-/* Style the form labels */
 label {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* Style the form inputs */
 input {
   width: 300px;
   height: 30px;
@@ -107,7 +62,6 @@ input {
   padding: 5px;
 }
 
-/* Style the submit button */
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -119,35 +73,25 @@ input[type=submit]:hover {
   text-align: center;
 }
 
-/* Style the error message */
 span {
   color: red;
   font-size: 0.8rem;
 }
+
 .social-icons {
-  /* Display as flex */
   display: flex;
-  /* Justify content to the center */
   justify-content: center;
-  /* Add some margin */
   margin: 5px;
 }
 
-/* Style the social media links */
 .social-icons a {
-  /* Remove the text decoration */
   text-decoration: none;
-  /* Add some padding */
   padding: 10px;
-  /* Add a border radius */
   border-radius: 50%;
-  /* Add a white color */
   color: #fff;
-  /* Add some margin */
   margin: 5px;
 }
 
-/* Add appropriate colors to Google, GitHub, and Twitter icons */
 .google {
   background-color: #dd4b39;
 }
@@ -159,6 +103,4 @@ span {
 .twitter {
   background-color: #55ACEE;
 }
-.facebook{
-  background-color: #321a70;
-}
+

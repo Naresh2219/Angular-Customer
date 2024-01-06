@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Open Tickets</h2>
+  <ul>
+    <li *ngFor="let ticket of openTickets">
+      {{ ticket.title }} - {{ ticket.description }} - {{ ticket.status }}
+    </li>
+  </ul>
+
+  <h2>Closed Tickets</h2>
+  <ul>
+    <li *ngFor="let ticket of closedTickets">
+      {{ ticket.title }} - {{ ticket.description }} - {{ ticket.status }}
+    </li>
+  </ul>
+
+  <!-- Your ticket form goes here -->
+  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <!-- Form controls for title, description, and status -->
+    <label for="title">Title:</label>
+    <input type="text" formControlName="title" required>
+
+    <label for="description">Description:</label>
+    <textarea formControlName="description"></textarea>
+
+    <label for="status">Status:</label>
+    <input type="text" formControlName="status" required>
+
+    <!-- Submit button -->
+    <button type="submit">Submit</button>
+  </form>
+</div>

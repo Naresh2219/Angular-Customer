@@ -1,13 +1,13 @@
-@keyframes animatedBackground {
+/* @keyframes animatedBackground {
   from { background-position: 0 0; }
   to { background-position: 50% 0; }
-}
+} */
 
-.container {
+/* .container {
   background-size: 200% 100%;
   background-repeat: no-repeat;
   animation: animatedBackground 100s linear infinite;
-}
+} */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -28,6 +28,7 @@ body {
     max-width: 300px;
     margin: 10px;
     text-align: center;
+
 }
 
 .image {

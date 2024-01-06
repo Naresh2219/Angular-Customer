@@ -10,7 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { StoreModule } from '@ngrx/store';
 import { GetallusersComponent } from './components/getallusers/getallusers.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { RequestComponent } from './components/request/request.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { RequestComponent } from './components/request/request.component';
     LoginComponent,
     GetallusersComponent,
     EditProfileComponent,
-    RequestComponent
+    NavBarComponent,
+    TicketComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

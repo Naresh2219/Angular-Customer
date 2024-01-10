@@ -5,7 +5,4 @@ export interface User {
   password?: string;
   confirmPassword?:String;
   image?: string;
-  title?: string;
-  description?: string;
-  status?: string;
 }

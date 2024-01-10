@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     console.log(user);
     this.userService.login(user).subscribe({
       next: (response: any) => {
-        this.router.navigateByUrl('/all');
+        this.router.navigateByUrl(`/ticket/${response.User_id}`);
       },
       error: (error: HttpErrorResponse) => {
         this.errorMessage = error.message;

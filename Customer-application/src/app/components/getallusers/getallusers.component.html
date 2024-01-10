@@ -26,9 +26,6 @@
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>
-          <td>{{user.title}}</td>
-          <td>{{user.description}}</td>
-          <td>{{user.status}}</td>
           <td>
             <a [routerLink]="['/edit', user.name]">edit</a>
           </td>
@@ -42,6 +39,7 @@
     </table>
     <ng-template #loading>Loading...</ng-template>
   </div>
+  <label></label>
   <div>
     <button (click)="onLogoutClick()">Logout</button>
   </div>

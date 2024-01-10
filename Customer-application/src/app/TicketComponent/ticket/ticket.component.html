@@ -1,0 +1,48 @@
+
+<div>
+  <!-- Open Tickets -->
+  <h2>Open Tickets</h2>
+  <ul>
+    <li *ngFor="let ticket of openTickets">
+      {{ ticket.title }} - {{ ticket.description }} - {{ ticket.status }}
+      <button (click)="updateTicket(ticket)">Update</button>
+      <button *ngIf="selectedTicket._id" (click)="deleteTicket(selectedTicket._id)">Delete</button>
+    </li>
+  </ul>
+</div>
+<!-- ticket.component.html -->
+
+<div>
+  <!-- Closed Tickets -->
+  <h2>Closed Tickets</h2>
+  <ul>
+    <li *ngFor="let ticket of closedTickets">
+      {{ ticket.title }} - {{ ticket.description }} - {{ ticket.status }}
+    </li>
+  </ul>
+</div>
+<!-- ticket.component.html -->
+
+<div>
+  <!-- Create New Ticket -->
+  <h2>Create New Ticket</h2>
+  <form (submit)="createTicket()">
+    <label>Title: <input [(ngModel)]="newTicket.title" required></label>
+    <label>Description: <input [(ngModel)]="newTicket.description"></label>
+    <label>Status: <input [(ngModel)]="newTicket.status" required></label>
+    <button type="submit" [disabled]="!isTicketValid(newTicket)">Create Ticket</button>
+  </form>
+</div>
+<!-- ticket.component.html -->
+
+<div *ngIf="isUpdateFormVisible">
+  <!-- Update Ticket -->
+  <h2>Update Ticket</h2>
+  <form (submit)="saveUpdatedTicket()">
+    <label>Title: <input [(ngModel)]="selectedTicket.title" required></label>
+    <label>Description: <input [(ngModel)]="selectedTicket.description"></label>
+    <label>Status: <input [(ngModel)]="selectedTicket.status" required></label>
+    <button type="submit" [disabled]="!isTicketValid(selectedTicket)">Save Changes</button>
+    <button type="button" (click)="cancelUpdate()">Cancel</button>
+  </form>
+</div>

@@ -42,9 +42,6 @@ export class EditProfileComponent implements OnInit {
           name: user.name,
           email: user.email,
           password: user.password,
-          title:user.title,
-          description:user.description,
-          status:user.status
         });
       },
       (error) => {
@@ -63,7 +60,6 @@ export class EditProfileComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe(
       (updatedUser) => {
         console.log('User updated:', updatedUser);
-        // Navigate to the login page after successful update
         this.router.navigate(['/Login']);
       },
       (error) => {

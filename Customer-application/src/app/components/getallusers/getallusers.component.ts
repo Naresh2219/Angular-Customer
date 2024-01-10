@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Ticket } from '../../Ticket';
 
 @Component({
   selector: 'app-getallusers',
@@ -29,9 +30,7 @@ export class GetallusersComponent implements OnInit {
   loadUsers(): void {
     this.users$ = this.userService.getAllUsers();
   }
-  tickets(): void{
-    this.users$=this.userService.getOpenTickets();
-  }
+
 
   deleteUser(user: User): void {
     this.userService.deleteUser(user).subscribe(
@@ -58,4 +57,5 @@ export class GetallusersComponent implements OnInit {
     }
   );
 }
+
 }

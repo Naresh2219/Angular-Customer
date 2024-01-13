@@ -7,20 +7,20 @@ import { Ticket } from 'src/app/Ticket';
   providedIn: 'root'
 })
 export class TicketService {
-  private apiUrl = 'http://localhost:8080/api/tickets';
+  private apiUrl = 'http://localhost:8083/api/tickets';
 
   constructor(private http: HttpClient) {}
 
-  getOpenTickets(userId: string): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiUrl}/open/${userId}`);
+  getOpenTicketsByEmail(email: string): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.apiUrl}/open/${email}`);
   }
 
-  getClosedTickets(userId: string): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiUrl}/closed/${userId}`);
+  getClosedTicketsByEmail(email: string): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.apiUrl}/closed/${email}`);
   }
 
-  createTicket(userId: string, ticket: Ticket): Observable<Ticket> {
-    return this.http.post<Ticket>(`${this.apiUrl}/${userId}`, ticket);
+  createTicketByEmail(email: string, ticket: Ticket): Observable<Ticket> {
+    return this.http.post<Ticket>(`${this.apiUrl}/create/email/${email}`, ticket);
   }
 
   updateTicket(updatedTicket: Ticket): Observable<Ticket> {

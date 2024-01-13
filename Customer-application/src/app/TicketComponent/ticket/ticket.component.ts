@@ -18,6 +18,7 @@ export class TicketComponent implements OnInit {
   isUpdateFormVisible: boolean = false;
   updateForm: FormGroup;
   createForm: FormGroup;
+  authenticatedUserEmail!: string;
 
   constructor(
     private userService: UserService,
@@ -42,14 +43,16 @@ export class TicketComponent implements OnInit {
   }
 
   loadTickets() {
-    const userId = 'userId';
+    this.userService.getUserByEmail('authenticated_user_email').subscribe(user => {
+      this.authenticatedUserEmail = user.email ?? '';
 
-    this.ticketService.getOpenTickets(userId).subscribe(openTickets => {
-      this.openTickets = openTickets;
-    });
+      this.ticketService.getOpenTicketsByEmail(this.authenticatedUserEmail).subscribe(openTickets => {
+        this.openTickets = openTickets;
+      });
 
-    this.ticketService.getClosedTickets(userId).subscribe(closedTickets => {
-      this.closedTickets = closedTickets;
+      this.ticketService.getClosedTicketsByEmail(this.authenticatedUserEmail).subscribe(closedTickets => {
+        this.closedTickets = closedTickets;
+      });
     });
   }
 
@@ -57,7 +60,7 @@ export class TicketComponent implements OnInit {
     if (this.createForm.valid) {
       const newTicketValues = this.createForm.value;
 
-      this.ticketService.createTicket('userId', newTicketValues).subscribe((createdTicket) => {
+      this.ticketService.createTicketByEmail(this.authenticatedUserEmail, newTicketValues).subscribe((createdTicket) => {
         this.openTickets.push(createdTicket);
         this.createForm.reset();
       });
@@ -74,35 +77,35 @@ export class TicketComponent implements OnInit {
     this.isUpdateFormVisible = true;
   }
 
-saveUpdatedTicket(): boolean {
-  if (this.selectedTicket && this.selectedTicket._id) {
-    const updatedValues = this.updateForm.value;
-    this.selectedTicket.title = updatedValues.title;
-    this.selectedTicket.description = updatedValues.description;
-    this.selectedTicket.status = updatedValues.status;
+  saveUpdatedTicket(): boolean {
+    if (this.selectedTicket && this.selectedTicket._id) {
+      const updatedValues = this.updateForm.value;
+      this.selectedTicket.title = updatedValues.title;
+      this.selectedTicket.description = updatedValues.description;
+      this.selectedTicket.status = updatedValues.status;
 
-    this.ticketService.updateTicket(this.selectedTicket).subscribe(
-      updatedTicket => {
-        const index = this.openTickets.findIndex(t => t._id === this.selectedTicket._id);
-        if (index !== -1) {
-          this.openTickets[index] = updatedTicket;
+      this.ticketService.updateTicket(this.selectedTicket).subscribe(
+        updatedTicket => {
+          const index = this.openTickets.findIndex(t => t._id === this.selectedTicket._id);
+          if (index !== -1) {
+            this.openTickets[index] = updatedTicket;
+          }
+
+          this.selectedTicket = {} as Ticket;
+          this.updateForm.reset();
+          this.isUpdateFormVisible = false;
+        },
+        error => {
+          console.error('Update failed:', error);
         }
+      );
 
-        this.selectedTicket = {} as Ticket;
-        this.updateForm.reset();
-        this.isUpdateFormVisible = false;
-      },
-      error => {
-        console.error('Update failed:', error);
-      }
-    );
-
-    return true;
-  } else {
-    console.error('Selected ticket or ticket ID is undefined.');
-    return false;
+      return true;
+    } else {
+      console.error('Selected ticket or ticket ID is undefined.');
+      return false;
+    }
   }
-}
 
   cancelUpdate() {
     this.selectedTicket = {} as Ticket;
@@ -116,11 +119,10 @@ saveUpdatedTicket(): boolean {
     });
   }
 
-isTicketValid(ticket: Ticket): boolean {
+  isTicketValid(ticket: Ticket): boolean {
     return (
-      ticket.title && ticket.title.trim() !== '' &&
-      ticket.status && ticket.status.trim() !== ''
+      !!ticket.title && ticket.title.trim() !== '' &&
+      !!ticket.status && ticket.status.trim() !== ''
     );
   }
-
 }

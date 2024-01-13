@@ -8,21 +8,20 @@
   </div>
 <div>
   <div class="table">
-    <table border="1">
+    <table border="2">
       <thead>
         <tr>
+          <th>Id</th>
           <th>Name</th>
           <th>Email</th>
           <th>Password</th>
-          <th>title</th>
-          <th>description</th>
-          <th>Status</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody *ngIf="(users$ | async) as users; else loading">
         <tr *ngFor="let user of users">
+          <td>{{user._id}}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>

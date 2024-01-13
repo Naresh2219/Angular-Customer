@@ -52,6 +52,8 @@ logout(user?: User): Observable<any>{
   const url = '${this.apiUrl}/Logout';
   return this.http.post(url, user);
 }
- 
+ getUserByEmail(email: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${email}`);
+  }
 }
 

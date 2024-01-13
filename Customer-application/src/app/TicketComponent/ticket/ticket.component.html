@@ -27,9 +27,9 @@
   <!-- Create New Ticket -->
   <h2>Create New Ticket</h2>
   <form (submit)="createTicket()">
-    <label>Title: <input [(ngModel)]="newTicket.title" required></label>
-    <label>Description: <input [(ngModel)]="newTicket.description"></label>
-    <label>Status: <input [(ngModel)]="newTicket.status" required></label>
+    <label>Title: <input [(ngModel)]="newTicket.title"  [ngModelOptions]='{standalone: true}'  required></label>
+    <label>Description: <input [(ngModel)]="newTicket.description" [ngModelOptions]='{standalone: true}' required></label>
+    <label>Status: <input [(ngModel)]="newTicket.status"  [ngModelOptions]='{standalone: true}'  required></label>
     <button type="submit" [disabled]="!isTicketValid(newTicket)">Create Ticket</button>
   </form>
 </div>

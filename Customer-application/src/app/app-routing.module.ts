@@ -16,9 +16,9 @@ const routes: Routes = [
   {path:'nav',component:NavBarComponent},
   {path:'', redirectTo: 'nav', pathMatch:'full'},
   {path:'Logout',component:GetallusersComponent},
-  {path:'ticket',component:TicketComponent},
+  { path: 'ticket', component: TicketComponent },
   { path: 'ticket/:email', component: TicketComponent },
-  {path:'create/:email',component:TicketComponent}
+  { path: 'create/:email', component: TicketComponent },
 ];
 
 @NgModule({

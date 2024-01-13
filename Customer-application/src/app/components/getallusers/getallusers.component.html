@@ -21,7 +21,7 @@
       </thead>
       <tbody *ngIf="(users$ | async) as users; else loading">
         <tr *ngFor="let user of users">
-          <td>{{user._id}}</td>
+          <td>{{user.id}}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>

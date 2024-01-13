@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user-service.service';
 import { TicketService } from 'src/app/services/ticket.service';
+import { ActivatedRoute } from '@angular/router';
 import { Ticket } from 'src/app/Ticket';
 
 @Component({
@@ -11,118 +12,29 @@ import { Ticket } from 'src/app/Ticket';
 })
 export class TicketComponent implements OnInit {
 
-  openTickets: Ticket[] = [];
-  closedTickets: Ticket[] = [];
-  newTicket: Ticket = {} as Ticket;
-  selectedTicket: Ticket = {} as Ticket;
-  isUpdateFormVisible: boolean = false;
-  updateForm: FormGroup;
-  createForm: FormGroup;
-  authenticatedUserEmail!: string;
+  userEmail: string = '';
+  ticket: Ticket = new Ticket();
 
-  constructor(
-    private userService: UserService,
-    private ticketService: TicketService,
-    private formBuilder: FormBuilder
-  ) {
-    this.updateForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: [''],
-      status: ['', Validators.required]
-    });
+  constructor(private route: ActivatedRoute, private ticketService: TicketService) { }
 
-    this.createForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: [''],
-      status: ['', Validators.required]
+  ngOnInit(): void {
+    // Access the 'email' parameter from the route
+    this.route.params.subscribe(params => {
+      this.userEmail = params['email'];
     });
   }
 
-  ngOnInit() {
-    this.loadTickets();
-  }
+  createTicket(): void {
+    this.ticket.userEmail = this.userEmail;
 
-  loadTickets() {
-    this.userService.getUserByEmail('authenticated_user_email').subscribe(user => {
-      this.authenticatedUserEmail = user.email ?? '';
-
-      this.ticketService.getOpenTicketsByEmail(this.authenticatedUserEmail).subscribe(openTickets => {
-        this.openTickets = openTickets;
-      });
-
-      this.ticketService.getClosedTicketsByEmail(this.authenticatedUserEmail).subscribe(closedTickets => {
-        this.closedTickets = closedTickets;
-      });
-    });
-  }
-
-  createTicket() {
-    if (this.createForm.valid) {
-      const newTicketValues = this.createForm.value;
-
-      this.ticketService.createTicketByEmail(this.authenticatedUserEmail, newTicketValues).subscribe((createdTicket) => {
-        this.openTickets.push(createdTicket);
-        this.createForm.reset();
-      });
-    }
-  }
-
-  updateTicket(ticket: Ticket) {
-    this.selectedTicket = { ...ticket };
-    this.updateForm.patchValue({
-      title: this.selectedTicket.title,
-      description: this.selectedTicket.description,
-      status: this.selectedTicket.status,
-    });
-    this.isUpdateFormVisible = true;
-  }
-
-  saveUpdatedTicket(): boolean {
-    if (this.selectedTicket && this.selectedTicket._id) {
-      const updatedValues = this.updateForm.value;
-      this.selectedTicket.title = updatedValues.title;
-      this.selectedTicket.description = updatedValues.description;
-      this.selectedTicket.status = updatedValues.status;
-
-      this.ticketService.updateTicket(this.selectedTicket).subscribe(
-        updatedTicket => {
-          const index = this.openTickets.findIndex(t => t._id === this.selectedTicket._id);
-          if (index !== -1) {
-            this.openTickets[index] = updatedTicket;
-          }
-
-          this.selectedTicket = {} as Ticket;
-          this.updateForm.reset();
-          this.isUpdateFormVisible = false;
+    this.ticketService.createTicket(this.ticket)
+      .subscribe(
+        data => {
+          console.log('Ticket created successfully:', data);
         },
         error => {
-          console.error('Update failed:', error);
+          console.error('Error creating ticket:', error);
         }
       );
-
-      return true;
-    } else {
-      console.error('Selected ticket or ticket ID is undefined.');
-      return false;
-    }
-  }
-
-  cancelUpdate() {
-    this.selectedTicket = {} as Ticket;
-    this.updateForm.reset();
-    this.isUpdateFormVisible = false;
-  }
-
-  deleteTicket(ticketId: string) {
-    this.ticketService.deleteTicket(ticketId).subscribe(() => {
-      this.openTickets = this.openTickets.filter(t => t._id !== ticketId);
-    });
-  }
-
-  isTicketValid(ticket: Ticket): boolean {
-    return (
-      !!ticket.title && ticket.title.trim() !== '' &&
-      !!ticket.status && ticket.status.trim() !== ''
-    );
   }
 }

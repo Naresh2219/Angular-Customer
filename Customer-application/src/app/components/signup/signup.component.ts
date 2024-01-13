@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
 
     if (this.form.valid) {
       const user: User = {
-        _id: this.form.value._id,
+        id: this.form.value._id,
         name: this.form.value.name,
         email: this.form.value.email,
         password: this.form.value.password

@@ -6,41 +6,40 @@
       <input type="search" [formControl]="search" id="userSearchInput" placeholder="Search">
     </div>
   </div>
-<div>
-  <div class="table">
-    <table border="2">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="(users$ | async) as users; else loading">
-        <tr *ngFor="let user of users">
-          <td>{{user.id}}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.password }}</td>
-          <td>
-            <a [routerLink]="['/edit', user.name]">edit</a>
-          </td>
-          <td>
-            <a (click)="deleteUser(user)">Delete</a>
 
-          
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <ng-template #loading>Loading...</ng-template>
-  </div>
-  <label></label>
   <div>
-    <button (click)="onLogoutClick()">Logout</button>
+    <div class="table">
+      <table border="2">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="(users$ | async) as users; else loading">
+          <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>
+              <a [routerLink]="['/edit', user.name]">edit</a>
+            </td>
+            <td>
+              <a (click)="deleteUser(user)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #loading>Loading...</ng-template>
+    </div>
+    <label></label>
+    <div>
+      <button (click)="onLogoutClick()">Logout</button>
+    </div>
   </div>
-</div>
 </div>

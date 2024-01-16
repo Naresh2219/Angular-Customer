@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private fb: FormBuilder,
-    private router: Router // Inject the Router service
+    private router: Router
   ) {}
 
   ngOnInit(): void {

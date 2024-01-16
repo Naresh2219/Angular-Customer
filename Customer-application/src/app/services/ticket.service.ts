@@ -11,12 +11,20 @@ export class TicketService {
 
   constructor(private http: HttpClient) {}
 
-
   createTicket(ticket: Ticket): Observable<Ticket> {
     return this.http.post<Ticket>(`${this.apiUrl}/create`, ticket);
   }
 
-  getTicketsByUser(email: string): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiUrl}/user/${email}`);
+  getAllTickets(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.apiUrl}/list`);
+  }
+
+  getTicketsByUserEmail(userEmail: string): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.apiUrl}/search?userEmail=${userEmail}`);
+}
+
+
+  getTicketByEmail(email: string): Observable<Ticket> {
+    return this.http.get<Ticket>(`${this.apiUrl}/getByEmail/${email}`);
   }
 }

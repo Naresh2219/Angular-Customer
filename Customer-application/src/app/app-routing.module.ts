@@ -6,6 +6,8 @@ import {GetallusersComponent} from './components/getallusers/getallusers.compone
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {TicketComponent} from './TicketComponent/ticket/ticket.component';
+import {TicketUpdateComponent} from './TicketComponent/ticketupdate/ticketupdate.component';
+import {TickteslistComponent} from './TicketComponent/tickteslist/tickteslist.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent},
@@ -19,6 +21,9 @@ const routes: Routes = [
   { path: 'ticket', component: TicketComponent },
   { path: 'ticket/:email', component: TicketComponent },
   { path: 'create/:email', component: TicketComponent },
+  {path: 'update/:email', component:TicketUpdateComponent},
+  { path: 'list', component: TickteslistComponent },
+
 ];
 
 @NgModule({

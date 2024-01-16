@@ -5,12 +5,13 @@ import { TicketService } from 'src/app/services/ticket.service';
 import { ActivatedRoute } from '@angular/router';
 import { Ticket } from 'src/app/Ticket';
 
+
 @Component({
-  selector: 'app-ticket',
-  templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  selector: 'app-ticketupdate',
+  templateUrl: './ticketupdate.component.html',
+  styleUrls: ['./ticketupdate.component.css']
 })
-export class TicketComponent implements OnInit {
+export class TicketUpdateComponent implements OnInit {
 
   userEmail: string = '';
   ticket: Ticket = new Ticket();
@@ -23,17 +24,5 @@ export class TicketComponent implements OnInit {
     });
   }
 
-  createTicket(): void {
-    this.ticket.userEmail = this.userEmail;
-
-    this.ticketService.createTicket(this.ticket)
-      .subscribe(
-        data => {
-          console.log('Ticket created successfully:', data);
-        },
-        error => {
-          console.error('Error creating ticket:', error);
-        }
-      );
-  }
+  
 }

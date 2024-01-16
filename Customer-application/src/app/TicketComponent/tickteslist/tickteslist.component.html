@@ -1,0 +1,38 @@
+<div class="search-form">
+    <form [formGroup]="searchForm">
+      <label for="userEmail">Search by User Email:</label>
+      <input type="text" id="userEmail" formControlName="userEmail" placeholder="Enter User Email">
+    </form>
+  </div>
+  
+  <div *ngIf="tickets$ | async as tickets; else loading">
+    <h2>Tickets for User: {{ userEmail }}</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>User Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.description }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.userEmail }}</td>
+          <td>
+       <button (click)="editTicket(ticket)">Edit</button>
+       <button (click)="delteTecket(ticket.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading tickets...</p>
+  </ng-template>
+  

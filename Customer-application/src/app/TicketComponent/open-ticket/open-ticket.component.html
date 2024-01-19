@@ -1,0 +1,24 @@
+<div *ngIf="tickets.length > 0">
+    <h2>Your Tickets</h2>
+    <table border="1" >
+      <thead>  
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets" >
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.description }}</td>
+          <td>{{ ticket.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="tickets.length === 0">
+    <p>No tickets found for the user.</p>
+  </div>
+  

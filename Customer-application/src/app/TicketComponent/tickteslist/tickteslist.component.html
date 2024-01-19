@@ -25,7 +25,7 @@
           <td>{{ ticket.userEmail }}</td>
           <td>
        <button (click)="editTicket(ticket)">Edit</button>
-       <button (click)="delteTecket(ticket.id)">Delete</button>
+       <button *ngIf="ticket.userEmail" (click)="deleteTicket(ticket.userEmail)">Delete</button>
           </td>
         </tr>
       </tbody>

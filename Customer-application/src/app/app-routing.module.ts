@@ -8,6 +8,8 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {TicketComponent} from './TicketComponent/ticket/ticket.component';
 import {TicketUpdateComponent} from './TicketComponent/ticketupdate/ticketupdate.component';
 import {TickteslistComponent} from './TicketComponent/tickteslist/tickteslist.component';
+import { OpenTicketComponent } from './TicketComponent/open-ticket/open-ticket.component';
+
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent},
@@ -20,9 +22,11 @@ const routes: Routes = [
   {path:'Logout',component:GetallusersComponent},
   { path: 'ticket', component: TicketComponent },
   { path: 'ticket/:email', component: TicketComponent },
+  {path:'create',component:TicketComponent},
   { path: 'create/:email', component: TicketComponent },
   {path: 'update/:email', component:TicketUpdateComponent},
   { path: 'list', component: TickteslistComponent },
+{ path: 'open/:userEmail', component: OpenTicketComponent }
 
 ];
 

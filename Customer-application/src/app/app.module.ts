@@ -14,6 +14,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TicketComponent } from './TicketComponent/ticket/ticket.component';
 import { TicketUpdateComponent } from './TicketComponent/ticketupdate/ticketupdate.component';
 import { TickteslistComponent } from './TicketComponent/tickteslist/tickteslist.component';
+import { OpenTicketComponent } from './TicketComponent/open-ticket/open-ticket.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TickteslistComponent } from './TicketComponent/tickteslist/tickteslist.
     TicketComponent,
     TicketUpdateComponent,
     TickteslistComponent,
+    OpenTicketComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,10 @@
       "default",
       {
         "ignore": [
-          "-webkit-backdrop-filter"
+          "-webkit-backdrop-filter",
+          "-webkit-filter",
+          "width: fit-content",
+          "text-size-adjust"
         ]
       }
     ],

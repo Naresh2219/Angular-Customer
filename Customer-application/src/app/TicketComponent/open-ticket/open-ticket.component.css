@@ -1,0 +1,36 @@
+h2{
+    text-align: center;
+    background-color: rgb(2, 2, 2);
+    color: aqua;
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+table tr {
+    transition: 0.4s;
+}
+
+table tr:hover {
+    background-color: #f2ebeb;
+}
+div {
+    position: relative;
+    background-image: url('../../../assets/funny-woman-boater-lilac-glasses-stares-amazement-showing-her-plane-tickets-blue-retro-suitcase.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+

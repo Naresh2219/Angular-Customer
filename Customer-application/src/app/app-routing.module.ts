@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: 'create/:email', component: TicketComponent },
   {path: 'update/:email', component:TicketUpdateComponent},
   { path: 'list', component: TickteslistComponent },
-{ path: 'open/:userEmail', component: OpenTicketComponent }
+{ path: 'open/:userEmail', component: OpenTicketComponent },
+{ path: 'tupdate/:id', component: TicketUpdateComponent },
 
 ];
 

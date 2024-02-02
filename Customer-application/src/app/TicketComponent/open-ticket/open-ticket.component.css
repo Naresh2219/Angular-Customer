@@ -1,36 +1,73 @@
-h2{
-    text-align: center;
-    background-color: rgb(2, 2, 2);
-    color: aqua;
-}
-table {
-    width: 50%;
-    border-collapse: collapse;
-
-    
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-
-table tr {
-    transition: 0.4s;
-}
-
-table tr:hover {
-    background-color: #f2ebeb;
-}
-div {
-    position: relative;
-    background-image: url('../../../assets/funny-woman-boater-lilac-glasses-stares-amazement-showing-her-plane-tickets-blue-retro-suitcase.jpg');
+.image {
+    background-image: url('../../../assets/_e4909971-8672-4e61-bac4-fdbbb8b84dd0.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
+.image h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #dddddd;
+}
+
+i {
+    color: #4CAF50;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    color: #f44336;
+}
+
+.delete-btn:hover {
+    color: #ff5722;
+}

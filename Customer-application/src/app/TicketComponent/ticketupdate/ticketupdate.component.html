@@ -1,7 +1,30 @@
-<p>ticketupdate works!</p>
-<!-- ticket-update.component.html -->
+<div class="img">
+  <h2>Edit Ticket</h2>
 
-<div>
-    <h2>Update Ticket for User: {{ userEmail }}</h2>
-  
-   
+  <form [formGroup]="ticketForm" (ngSubmit)="updateTicket()">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title">
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div>
+      <label for="status">Status:</label>
+      <input type="text" id="status" formControlName="status">
+    </div>
+    <div>
+      <label for="userEmail">Email</label>
+      <input type="userEmail" name="" id="userEmail" formControlName="userEmail">
+    </div>
+
+    <button type="submit">Update Ticket</button>
+  </form>
+
+  <div *ngIf="updateSuccess">
+    <p>Ticket updated successfully!</p>
+  </div>
+</div>

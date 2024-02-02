@@ -4,5 +4,4 @@ export class Ticket {
   description?: string;
   status?: string;
   userEmail?: string; 
-  totalTicketsForUser?: number;
 }

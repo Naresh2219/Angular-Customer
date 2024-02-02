@@ -30,4 +30,17 @@ export class TicketService {
  getTicketsByUserEmail(userEmail: string): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiUrl}/open?userEmail=${userEmail}`);
   }
+ deleteByTitle(title: string): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/delete/${title}`);
+}
+ getTicketById(id: string): Observable<Ticket> {
+  return this.http.get<Ticket>(`${this.apiUrl}/update?id=${id}`);
+}
+
+ updateTicket(ticket: Ticket): Observable<Ticket> {
+  const url = `${this.apiUrl}/tupdate/${ticket.id}`;
+  return this.http.put<Ticket>(url, ticket);
+}
+
+
 }

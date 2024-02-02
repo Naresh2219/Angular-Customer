@@ -6,7 +6,8 @@
     "axe/name-role-value": [
       "default",
       {
-        "link-name": "off"
+        "link-name": "off",
+        "button-name": "off"
       }
     ],
     "axe/forms": [
@@ -22,10 +23,18 @@
           "-webkit-backdrop-filter",
           "-webkit-filter",
           "width: fit-content",
-          "text-size-adjust"
+          "text-size-adjust",
+          "max-width: fit-content",
+          "height: fit-content"
         ]
       }
     ],
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
+    ]
   }
 }

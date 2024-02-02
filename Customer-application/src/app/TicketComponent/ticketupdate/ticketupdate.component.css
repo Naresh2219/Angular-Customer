@@ -1,0 +1,85 @@
+div {
+    background-color: rgb(139, 182, 160);
+    border: 1px solid #0c0909;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .image {
+    background-image: url('../../../assets/funny-woman-boater-lilac-glasses-stares-amazement-showing-her-plane-tickets-blue-retro-suitcase.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  form div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 3px #4CAF50;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .update-success {
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    color: #155724;
+  }

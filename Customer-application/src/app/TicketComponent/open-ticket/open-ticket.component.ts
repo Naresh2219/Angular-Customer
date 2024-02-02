@@ -33,4 +33,20 @@ export class OpenTicketComponent implements OnInit {
         }
       );
   }
+
+  delete(ticket: Ticket | undefined): void {
+    if (ticket && ticket.title) {
+      this.ticketService.deleteByTitle(ticket.title).subscribe(
+        (response: any) => {
+          console.log('Deleted successfully', response);
+          this.loadTicketDetails();
+        },
+        (error: any) => {
+          console.log('Error deleting ticket:', error);
+        }
+      );
+    } else {
+      console.error('Ticket title is undefined');
+    }
+  }
 }

@@ -4,7 +4,7 @@
     <table border="1" >
       <thead>  
         <tr>
-          <th>Ticketid</th>
+          <th>TicketId</th>
           <th>Title</th>
           <th>Description</th>
           <th>Status</th>
@@ -26,9 +26,10 @@
         </svg></a></td>
         </tr>
       </tbody>
+      <a [routerLink]="['/create', userEmail]">create</a>
     </table>
   </div>
-  
   <div *ngIf="tickets.length === 0">
     <p>No tickets found for the user.</p>
   </div>
+

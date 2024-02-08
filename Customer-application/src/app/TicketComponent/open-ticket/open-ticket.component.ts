@@ -11,8 +11,11 @@ import { Ticket } from 'src/app/Ticket';
 export class OpenTicketComponent implements OnInit {
   userEmail: string = '';
   tickets: Ticket[] = [];
+email: any|string;
 
-  constructor(private route: ActivatedRoute, private ticketService: TicketService) { }
+  constructor(private route: ActivatedRoute, private ticketService: TicketService) {
+    this.email = this.route.snapshot.paramMap.get('userEmail');
+   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

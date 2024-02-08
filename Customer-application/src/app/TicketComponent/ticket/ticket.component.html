@@ -1,32 +1,35 @@
-<!-- ticket.component.html -->
-<head>
-  <title>createTicket</title>
-</head>
 <div class="img">
   <div class="container">
-  <h2 class="title">Create Ticket</h2>
+    <h2 class="title">Create Ticket</h2>
 
-  <!-- Display user's email (optional) -->
-  <p>User Email: {{ userEmail }}</p>
+    <!-- Display user's email (optional) -->
+    <p>User Email: {{ userEmail }}</p>
 
-  <form (submit)="createTicket()">
-    <div >
-      <label for="title">Title:</label>
-      <input type="text" id="title" [(ngModel)]="ticket.title" name="title" required>
-    </div>
+    <form (submit)="createTicket()">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="ticket.title" name="title" required>
+      </div>
 
-    <div >
-      <label for="description">Description:</label>
-      <textarea id="description" [(ngModel)]="ticket.description" name="description" required></textarea>
-    </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="ticket.description" name="description" required></textarea>
+      </div>
 
-    <div>
-      <label for="status">Status:</label>
-      <input type="text" id="status" [(ngModel)]="ticket.status" name="status" required>
-    </div>
+      <div>
+        <label for="status">Status:</label>
+        <select id="status" [(ngModel)]="ticket.status" name="status" required>
+          <option value="open">Open</option>
+          <option value="Pending">Pending</option>
+          <option value="Resolved">Redolved</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
 
-    <button type="submit">Create Ticket</button>
-  </form>
+      <button type="submit">Create Ticket</button>
+      <div class="link-container">
+        <a class="a" [routerLink]="['/open',userEmail]">See all your tickets</a>
+      </div>
+    </form>
+  </div>
 </div>
-</div>
-

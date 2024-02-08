@@ -47,7 +47,9 @@ tr:hover {
 i {
     color: #4CAF50;
 }
-
+B{
+    color: rgb(255, 94, 0);
+}
 a {
     color: #4CAF50;
     text-decoration: none;
